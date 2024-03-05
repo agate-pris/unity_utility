@@ -1,3 +1,16 @@
 {
     "name": "AgatePris.UnityUtility.Tests",
+    "rootNamespace": "",
+    "references": [
+        "GUID:7579b2d478a03534f9b1fac42587feed"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }
