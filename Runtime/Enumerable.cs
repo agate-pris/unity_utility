@@ -17,5 +17,10 @@ namespace AgatePris.UnityUtility {
                 }
             }
         }
+        public static IEnumerable<int> RangeExclusive(int start, int end) {
+            for (var i = start; i < end; i++) {
+                yield return i;
+            }
+        }
     }
 }
