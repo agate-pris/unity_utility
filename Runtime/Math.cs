@@ -15,5 +15,10 @@ namespace AgatePris.UnityUtility {
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         static int CalcFull(int right) => right * 4;
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        internal static byte CalcQuadrant(int x, int right) => (byte)(
+            Repeat(x, CalcFull(right)) / right
+        );
     }
 }
