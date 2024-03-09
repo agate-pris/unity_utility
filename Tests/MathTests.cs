@@ -17,5 +17,22 @@ namespace AgatePris.UnityUtility {
         public static void TestRepeat(int expected, int value, int length) => Assert.AreEqual(
             expected, Repeat(value, length)
         );
+
+        static IEnumerable<object> TestCalcQuadrantSource() {
+            const int right = 25;
+            for (var i = -9; i <= 9; i++) {
+                var offset = 4 * i * right;
+                for (var expected = 0; expected < 4; expected++) {
+                    yield return new object[] { (byte)expected, offset + right * (expected + 0) + 0, right };
+                    yield return new object[] { (byte)expected, offset + right * (expected + 0) + 1, right };
+                    yield return new object[] { (byte)expected, offset + right * (expected + 1) - 1, right };
+                }
+            }
+        }
+
+        [TestCaseSource(nameof(TestCalcQuadrantSource))]
+        public static void TestCalcQuadrant(byte expected, int x, int right) => Assert.AreEqual(
+            expected, CalcQuadrant(x, right)
+        );
     }
 }
