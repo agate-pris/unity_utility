@@ -1,16 +1,21 @@
 using NUnit.Framework;
+using System.Collections.Generic;
+using static AgatePris.UnityUtility.Math;
 
 namespace AgatePris.UnityUtility {
     public static class MathTests {
-        [TestCase(9, -11, 10)]
-        [TestCase(0, -10, 10)]
-        [TestCase(1, -9, 10)]
-        [TestCase(9, -1, 10)]
-        [TestCase(0, 0, 10)]
-        [TestCase(1, 1, 10)]
-        [TestCase(9, 9, 10)]
-        [TestCase(0, 10, 10)]
-        [TestCase(1, 11, 10)]
-        public static void TestRepeat(int expected, int value, int length) => Assert.AreEqual(expected, Math.Repeat(value, length));
+        static IEnumerable<object> TestRepeatSource() {
+            const int length = 10;
+            for (var i = -9; i <= 9; i++) {
+                yield return new object[] { 9, length * i - 1, length };
+                yield return new object[] { 0, length * i + 0, length };
+                yield return new object[] { 1, length * i + 1, length };
+            }
+        }
+
+        [TestCaseSource(nameof(TestRepeatSource))]
+        public static void TestRepeat(int expected, int value, int length) => Assert.AreEqual(
+            expected, Repeat(value, length)
+        );
     }
 }
