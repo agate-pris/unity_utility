@@ -12,5 +12,8 @@ namespace AgatePris.UnityUtility {
             }
             return rem;
         }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        static int CalcFull(int right) => right * 4;
     }
 }
