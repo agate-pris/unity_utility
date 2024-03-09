@@ -22,5 +22,17 @@ namespace AgatePris.UnityUtility {
                 yield return i;
             }
         }
+        public static IEnumerable<int> RangeInclusive(int start, int end) {
+            if (end == int.MaxValue) {
+                for (var i = start; i < end; i++) {
+                    yield return i;
+                }
+                yield return int.MaxValue;
+                yield break;
+            }
+            for (var i = start; i <= end; i++) {
+                yield return i;
+            }
+        }
     }
 }
