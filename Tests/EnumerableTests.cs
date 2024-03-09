@@ -28,5 +28,13 @@ namespace AgatePris.UnityUtility {
             Assert.AreEqual(1, l.Count);
             Assert.AreEqual(int.MaxValue - 1, l[0]);
         }
+
+        [Test]
+        public static void TestRangeInclusive() {
+            var l = RangeInclusive(int.MaxValue - 1, int.MaxValue).ToList();
+            Assert.AreEqual(2, l.Count);
+            Assert.AreEqual(int.MaxValue - 1, l[0]);
+            Assert.AreEqual(int.MaxValue, l[1]);
+        }
     }
 }
