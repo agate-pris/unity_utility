@@ -197,6 +197,18 @@ namespace AgatePris.UnityUtility {
         }
 
         [TestCaseSource(nameof(TestPeriodicitySource))] public static void TestSinP1Periodicity(int x) => TestPeriodicity(x, SinP1);
+        [TestCaseSource(nameof(TestPeriodicitySource))] public static void TestSinP2Periodicity(int x) => TestPeriodicity(x, SinP2);
+        [TestCaseSource(nameof(TestPeriodicitySource))] public static void TestSinP3Periodicity(int x) => TestPeriodicity(x, SinP3);
+        [TestCaseSource(nameof(TestPeriodicitySource))] public static void TestSinP4Periodicity(int x) => TestPeriodicity(x, SinP4);
+        [TestCaseSource(nameof(TestPeriodicitySource))] public static void TestSinP5Periodicity(int x) => TestPeriodicity(x, SinP5);
         [TestCaseSource(nameof(TestPeriodicitySource))] public static void TestCosP1Periodicity(int x) => TestPeriodicity(x, CosP1);
+        [TestCaseSource(nameof(TestPeriodicitySource))] public static void TestCosP2Periodicity(int x) => TestPeriodicity(x, CosP2);
+        [TestCaseSource(nameof(TestPeriodicitySource))] public static void TestCosP3Periodicity(int x) => TestPeriodicity(x, CosP3);
+        [TestCaseSource(nameof(TestPeriodicitySource))] public static void TestCosP4Periodicity(int x) => TestPeriodicity(x, CosP4);
+        [TestCaseSource(nameof(TestPeriodicitySource))] public static void TestCosP5Periodicity(int x) => TestPeriodicity(x, CosP5);
+        [TestCaseSource(nameof(TestPeriodicitySource))] public static void TestSinP4OPeriodicity(int x) => TestPeriodicity(x, SinP4O);
+        [TestCaseSource(nameof(TestPeriodicitySource))] public static void TestSinP5OPeriodicity(int x) => TestPeriodicity(x, SinP5O);
+        [TestCaseSource(nameof(TestPeriodicitySource))] public static void TestCosP4OPeriodicity(int x) => TestPeriodicity(x, CosP4O);
+        [TestCaseSource(nameof(TestPeriodicitySource))] public static void TestCosP5OPeriodicity(int x) => TestPeriodicity(x, CosP5O);
     }
 }
