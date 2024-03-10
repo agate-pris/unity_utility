@@ -91,6 +91,19 @@ namespace AgatePris.UnityUtility {
             return SinP3CosP4Impl(a, b, z_2, right) * z_2;
         }
 
+        /// <summary>
+        /// 1 + k - k * x ^ 2
+        /// </summary>
+        /// <param name="k"></param>
+        /// <param name="x"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        static int SinP3Impl(int k, int x, int right) {
+            var z = SinP1(x, right);
+            return SinP3CosP4Impl(right + k, k, z * z / right, right) * z;
+        }
+
         /// <summary>x</summary>
         /// <param name="x"></param>
         /// <param name="right"></param>
