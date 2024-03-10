@@ -6,6 +6,11 @@ using static AgatePris.UnityUtility.Math;
 
 namespace AgatePris.UnityUtility {
     public static class MathTests {
+        [Serializable]
+        class ArrayWrapper<T> {
+            public T[] root;
+        }
+
         static void TestPeriodicity(int x, Func<int, int> f) {
             const int full = 4 * DefaultRight;
             Assert.IsTrue(x >= 0);
