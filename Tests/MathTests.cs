@@ -54,6 +54,12 @@ namespace AgatePris.UnityUtility {
             }
         }
 
+        static List<int> ToSinPeriodOdd(IEnumerable<int> data) {
+            var n = data.Count() - 1;
+            var a = data.Take(n).Concat(data.Reverse().Take(n));
+            return a.Concat(a.Select(x => -x)).ToList();
+        }
+
         static void TestPeriodicity(int x, Func<int, int> f) {
             const int full = 4 * DefaultRight;
             Assert.IsTrue(x >= 0);
