@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using static AgatePris.UnityUtility.Math;
 
@@ -22,6 +23,14 @@ namespace AgatePris.UnityUtility {
             while (e.MoveNext() && a.MoveNext()) {
                 Assert.AreEqual(e.Current, a.Current);
             }
+        }
+
+        static void TestRange(
+            IEnumerable<int> data, int skips,
+            IEnumerable<int> args, Func<int, int> f
+        ) {
+            var expected = data.Cycle().Skip(skips);
+            AssertRangesAreEqual(expected, args.Select(f));
         }
 
         static void TestPeriodicity(int x, Func<int, int> f) {
