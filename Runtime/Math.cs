@@ -54,6 +54,14 @@ namespace AgatePris.UnityUtility {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         internal static int CosP4K(int right) => (int)Round((1 - PI / 4) * right);
 
+        /// <summary>
+        /// pi / 2
+        /// </summary>
+        /// <param name="right">The right angle.</param>
+        /// <returns>(int)Round(PI / 2 * right)</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        internal static int SinP5K(int right) => (int)Round(PI / 2 * right);
+
         /// <summary>x</summary>
         /// <param name="x"></param>
         /// <param name="right"></param>
