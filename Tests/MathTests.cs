@@ -96,5 +96,7 @@ namespace AgatePris.UnityUtility {
                 yield return (1 + i) * DefaultRight - 1;
             }
         }
+
+        [TestCaseSource(nameof(TestPeriodicitySource))] public static void TestSinP1Periodicity(int x) => TestPeriodicity(x, SinP1);
     }
 }
