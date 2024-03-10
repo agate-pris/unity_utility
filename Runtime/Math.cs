@@ -1,3 +1,4 @@
+using System;
 using System.Runtime.CompilerServices;
 
 namespace AgatePris.UnityUtility {
@@ -30,5 +31,18 @@ namespace AgatePris.UnityUtility {
         static int EvenSinImpl(int x, int right) => (
             x % CalcFull(right)
         ) - right;
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        static unsafe int EvenCosImpl(int x, int right, delegate*<int, int, int> f) {
+            var rem = Repeat(x, right);
+            var k = right * right;
+            return CalcQuadrant(x, right) switch {
+                1 => -k + f(right - rem, right),
+                3 => k - f(right - rem, right),
+                2 => -k + f(rem, right),
+                0 => k - f(rem, right),
+                _ => throw new InvalidOperationException("Invalid quadrant"),
+            };
+        }
     }
 }
