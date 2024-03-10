@@ -98,5 +98,6 @@ namespace AgatePris.UnityUtility {
         }
 
         [TestCaseSource(nameof(TestPeriodicitySource))] public static void TestSinP1Periodicity(int x) => TestPeriodicity(x, SinP1);
+        [TestCaseSource(nameof(TestPeriodicitySource))] public static void TestCosP1Periodicity(int x) => TestPeriodicity(x, CosP1);
     }
 }
