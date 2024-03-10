@@ -44,5 +44,24 @@ namespace AgatePris.UnityUtility {
                 _ => throw new InvalidOperationException("Invalid quadrant"),
             };
         }
+
+        /// <summary>x</summary>
+        /// <param name="x"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
+        /// <exception cref="InvalidOperationException"></exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int SinP1(int x, int right) {
+            var rem = Repeat(x, right);
+            return CalcQuadrant(x, right) switch {
+                1 => -rem + right,
+                3 => rem - right,
+                2 => -rem,
+                0 => rem,
+                _ => throw new InvalidOperationException("Invalid quadrant"),
+            };
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)] public static int SinP1(int x) => SinP1(x, DefaultRight);
     }
 }
