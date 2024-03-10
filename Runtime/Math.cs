@@ -25,5 +25,10 @@ namespace AgatePris.UnityUtility {
         static int OddCosImpl(int x, int right) => (
             x % CalcFull(right)
         ) + right;
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        static int EvenSinImpl(int x, int right) => (
+            x % CalcFull(right)
+        ) - right;
     }
 }
