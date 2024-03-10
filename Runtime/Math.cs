@@ -218,7 +218,13 @@ namespace AgatePris.UnityUtility {
             }
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)] public static int SinP2(int x, int right) => CosP2(EvenSinImpl(x, right), right);
+        [MethodImpl(MethodImplOptions.AggressiveInlining)] public static int SinP4(int x, int right) => CosP4(EvenSinImpl(x, right), right);
         [MethodImpl(MethodImplOptions.AggressiveInlining)] public static int CosP1(int x, int right) => SinP1(OddCosImpl(x, right), right);
+        [MethodImpl(MethodImplOptions.AggressiveInlining)] public static int CosP3(int x, int right) => SinP3(OddCosImpl(x, right), right);
+        [MethodImpl(MethodImplOptions.AggressiveInlining)] public static int CosP5(int x, int right) => SinP5(OddCosImpl(x, right), right);
+        [MethodImpl(MethodImplOptions.AggressiveInlining)] public static int SinP4O(int x, int right) => CosP4O(EvenSinImpl(x, right), right);
+        [MethodImpl(MethodImplOptions.AggressiveInlining)] public static int CosP5O(int x, int right) => SinP5O(OddCosImpl(x, right), right);
         [MethodImpl(MethodImplOptions.AggressiveInlining)] public static int SinP1(int x) => SinP1(x, DefaultRight);
         [MethodImpl(MethodImplOptions.AggressiveInlining)] public static int CosP1(int x) => CosP1(x, DefaultRight);
     }
