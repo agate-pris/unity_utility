@@ -16,6 +16,14 @@ namespace AgatePris.UnityUtility {
             return JsonUtility.FromJson<ArrayWrapper<T>>(json).root;
         }
 
+        static void AssertRangesAreEqual<T>(IEnumerable<T> expected, IEnumerable<T> actual) {
+            var e = expected.GetEnumerator();
+            var a = actual.GetEnumerator();
+            while (e.MoveNext() && a.MoveNext()) {
+                Assert.AreEqual(e.Current, a.Current);
+            }
+        }
+
         static void TestPeriodicity(int x, Func<int, int> f) {
             const int full = 4 * DefaultRight;
             Assert.IsTrue(x >= 0);
