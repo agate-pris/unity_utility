@@ -150,6 +150,21 @@ namespace AgatePris.UnityUtility {
             };
         }
 
+        /// <summary>
+        /// 1 - x ^ 2
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int CosP2(int x, int right) {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            static int f(int z, int _) => z * z;
+            unsafe {
+                return EvenCosImpl(x, right, &f);
+            }
+        }
+
         [MethodImpl(MethodImplOptions.AggressiveInlining)] public static int CosP1(int x, int right) => SinP1(OddCosImpl(x, right), right);
         [MethodImpl(MethodImplOptions.AggressiveInlining)] public static int SinP1(int x) => SinP1(x, DefaultRight);
         [MethodImpl(MethodImplOptions.AggressiveInlining)] public static int CosP1(int x) => CosP1(x, DefaultRight);
