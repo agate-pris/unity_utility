@@ -117,6 +117,22 @@ namespace AgatePris.UnityUtility {
             return CosP4SinP5Impl(k + right, k, z, right);
         }
 
+        /// <summary>
+        /// k * x - (2 * k - 2.5) * x ^ 3 + (k - 1.5) * x ^ 5
+        /// </summary>
+        /// <param name="f"></param>
+        /// <param name="x"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        static unsafe int SinP5Impl(delegate*<int, int> f, int x, int right) {
+            var k = f(right);
+            var z = SinP1(x, right);
+            var a = k * 2 - right * 5 / 2;
+            var b = k - right * 3 / 2;
+            return (k - CosP4SinP5Impl(a, b, z, right) / right) * z;
+        }
+
         /// <summary>x</summary>
         /// <param name="x"></param>
         /// <param name="right"></param>
