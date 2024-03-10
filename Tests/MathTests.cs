@@ -175,6 +175,19 @@ namespace AgatePris.UnityUtility {
         const string CosP4OJsonPath = "Packages/dev.agate-pris.unity-utility/Tests/.data/cos_p4o_i32.json";
         const string SinP5OJsonPath = "Packages/dev.agate-pris.unity-utility/Tests/.data/sin_p5o_i32.json";
 
+        [Test] public static void TestSinP2Partial() => TestPartial(SinP2, CosP2JsonPath, ToSinPeriodEven);
+        [Test] public static void TestSinP3Partial() => TestPartial(SinP3, SinP3JsonPath, ToSinPeriodOdd);
+        [Test] public static void TestSinP4Partial() => TestPartial(SinP4, CosP4JsonPath, ToSinPeriodEven);
+        [Test] public static void TestSinP5Partial() => TestPartial(SinP5, SinP5JsonPath, ToSinPeriodOdd);
+        [Test] public static void TestCosP2Partial() => TestPartial(CosP2, CosP2JsonPath, ToCosPeriodEven);
+        [Test] public static void TestCosP3Partial() => TestPartial(CosP3, SinP3JsonPath, ToCosPeriodOdd);
+        [Test] public static void TestCosP4Partial() => TestPartial(CosP4, CosP4JsonPath, ToCosPeriodEven);
+        [Test] public static void TestCosP5Partial() => TestPartial(CosP5, SinP5JsonPath, ToCosPeriodOdd);
+        [Test] public static void TestSinP4OPartial() => TestPartial(SinP4O, CosP4OJsonPath, ToSinPeriodEven);
+        [Test] public static void TestSinP5OPartial() => TestPartial(SinP5O, SinP5OJsonPath, ToSinPeriodOdd);
+        [Test] public static void TestCosP4OPartial() => TestPartial(CosP4O, CosP4OJsonPath, ToCosPeriodEven);
+        [Test] public static void TestCosP5OPartial() => TestPartial(CosP5O, SinP5OJsonPath, ToCosPeriodOdd);
+
         static IEnumerable<int> TestPeriodicitySource() {
             for (var i = 0; i < 4; i++) {
                 yield return (0 + i) * DefaultRight + 0;
