@@ -11,6 +11,11 @@ namespace AgatePris.UnityUtility {
             public T[] root;
         }
 
+        static T[] ArrayFromJson<T>(string text) {
+            var json = "{\"root\":" + text + "}";
+            return JsonUtility.FromJson<ArrayWrapper<T>>(json).root;
+        }
+
         static void TestPeriodicity(int x, Func<int, int> f) {
             const int full = 4 * DefaultRight;
             Assert.IsTrue(x >= 0);
