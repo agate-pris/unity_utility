@@ -51,6 +51,8 @@ namespace AgatePris.UnityUtility {
             expected, CalcQuadrant(x, right)
         );
 
+        [Test] public static void TestCosP4K() => Assert.AreEqual(7032, CosP4K(DefaultRight));
+
         static IEnumerable<object> TestSinP1Source() {
             const int right = 25;
             for (var i = -9; i <= 9; i++) {
