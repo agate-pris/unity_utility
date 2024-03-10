@@ -1,5 +1,6 @@
 using System;
 using System.Runtime.CompilerServices;
+using static System.Math;
 
 namespace AgatePris.UnityUtility {
     public static partial class Math {
@@ -44,6 +45,14 @@ namespace AgatePris.UnityUtility {
                 _ => throw new InvalidOperationException("Invalid quadrant"),
             };
         }
+
+        /// <summary>
+        /// 1 - pi / 4
+        /// </summary>
+        /// <param name="right">The right angle.</param>
+        /// <returns>(int)Round((1 - PI / 4) * right)</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        internal static int CosP4K(int right) => (int)Round((1 - PI / 4) * right);
 
         /// <summary>x</summary>
         /// <param name="x"></param>
