@@ -1,9 +1,25 @@
 using NUnit.Framework;
+using System;
 using System.Collections.Generic;
+using UnityEngine;
 using static AgatePris.UnityUtility.Math;
 
 namespace AgatePris.UnityUtility {
     public static class MathTests {
+        static void TestPeriodicity(int x, Func<int, int> f) {
+            const int full = 4 * DefaultRight;
+            Assert.IsTrue(x >= 0);
+            Assert.IsTrue(x < full);
+            var expected = (2 * DefaultRight <= x) ? f(x - full) : f(x);
+            Debug.Log($"expected: {expected}");
+            for (var i = x + int.MinValue; i <= int.MaxValue; i += full) {
+                Assert.AreEqual(expected, f(i));
+                if (i > 0 && int.MaxValue - i < full) {
+                    break;
+                }
+            }
+        }
+
         static IEnumerable<object> TestRepeatSource() {
             const int length = 10;
             for (var i = -9; i <= 9; i++) {
