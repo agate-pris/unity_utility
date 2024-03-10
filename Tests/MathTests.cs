@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using UnityEngine;
 using static AgatePris.UnityUtility.Math;
@@ -31,6 +32,26 @@ namespace AgatePris.UnityUtility {
         ) {
             var expected = data.Cycle().Skip(skips);
             AssertRangesAreEqual(expected, args.Select(f));
+        }
+
+        static void TestPartial(
+            Func<int, int> f,
+            string path,
+            Func<IEnumerable<int>, List<int>> to_period
+        ) {
+            path = Path.GetFullPath(path);
+            var text = File.ReadAllText(path);
+            var data = to_period(ArrayFromJson<int>(text));
+            var full = data.Count;
+            {
+                var args = Enumerable.RangeInclusive(-full - 1, full + 1);
+                TestRange(data, full - 1, args, f);
+            }
+            {
+                var head = Enumerable.RangeInclusive(int.MaxValue - full, int.MaxValue);
+                var tail = Enumerable.RangeInclusive(int.MinValue, int.MinValue + full + 1);
+                TestRange(data, full - 1, head.Concat(tail), f);
+            }
         }
 
         static void TestPeriodicity(int x, Func<int, int> f) {
