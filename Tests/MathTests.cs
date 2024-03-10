@@ -52,6 +52,7 @@ namespace AgatePris.UnityUtility {
         );
 
         [Test] public static void TestCosP4K() => Assert.AreEqual(7032, CosP4K(DefaultRight));
+        [Test] public static void TestSinP5K() => Assert.AreEqual(51472, SinP5K(DefaultRight));
 
         static IEnumerable<object> TestSinP1Source() {
             const int right = 25;
