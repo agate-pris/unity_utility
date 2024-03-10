@@ -69,5 +69,7 @@ namespace AgatePris.UnityUtility {
                 yield return new object[] { 0 * right + 1, (3 + 4 * i) * right + 1, right };
             }
         }
+
+        [TestCaseSource(nameof(TestSinP1Source))] public static void TestSinP1(int expected, int x, int right) => Assert.AreEqual(expected, SinP1(x, right));
     }
 }
