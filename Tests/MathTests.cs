@@ -60,6 +60,12 @@ namespace AgatePris.UnityUtility {
             return a.Concat(a.Select(x => -x)).ToList();
         }
 
+        static List<int> ToSinPeriodEven(IEnumerable<int> data) {
+            var n = data.Count() - 1;
+            var a = data.Reverse().Take(n).Concat(data.Take(n));
+            return a.Concat(a.Select(x => -x)).ToList();
+        }
+
         static void TestPeriodicity(int x, Func<int, int> f) {
             const int full = 4 * DefaultRight;
             Assert.IsTrue(x >= 0);
