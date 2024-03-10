@@ -88,5 +88,13 @@ namespace AgatePris.UnityUtility {
 
         [TestCaseSource(nameof(TestSinP1Source))] public static void TestSinP1(int expected, int x, int right) => Assert.AreEqual(expected, SinP1(x, right));
         [TestCaseSource(nameof(TestCosP1Source))] public static void TestCosP1(int expected, int x, int right) => Assert.AreEqual(expected, CosP1(x, right));
+
+        static IEnumerable<int> TestPeriodicitySource() {
+            for (var i = 0; i < 4; i++) {
+                yield return (0 + i) * DefaultRight + 0;
+                yield return (0 + i) * DefaultRight + 1;
+                yield return (1 + i) * DefaultRight - 1;
+            }
+        }
     }
 }
