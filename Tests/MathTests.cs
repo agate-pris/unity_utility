@@ -52,5 +52,22 @@ namespace AgatePris.UnityUtility {
                 yield return new object[] { 1 - 1 * right, (3 + 4 * i) * right + 1, right };
             }
         }
+        static IEnumerable<object> TestCosP1Source() {
+            const int right = 25;
+            for (var i = -9; i <= 9; i++) {
+                yield return new object[] { 1 * right - 1, (0 + 4 * i) * right - 1, right };
+                yield return new object[] { 1 * right + 0, (0 + 4 * i) * right + 0, right };
+                yield return new object[] { 1 * right - 1, (0 + 4 * i) * right + 1, right };
+                yield return new object[] { 0 * right + 1, (1 + 4 * i) * right - 1, right };
+                yield return new object[] { 0 * right + 0, (1 + 4 * i) * right + 0, right };
+                yield return new object[] { 0 * right - 1, (1 + 4 * i) * right + 1, right };
+                yield return new object[] { 1 - 1 * right, (2 + 4 * i) * right - 1, right };
+                yield return new object[] { 0 - 1 * right, (2 + 4 * i) * right + 0, right };
+                yield return new object[] { 1 - 1 * right, (2 + 4 * i) * right + 1, right };
+                yield return new object[] { 0 * right - 1, (3 + 4 * i) * right - 1, right };
+                yield return new object[] { 0 * right + 0, (3 + 4 * i) * right + 0, right };
+                yield return new object[] { 0 * right + 1, (3 + 4 * i) * right + 1, right };
+            }
+        }
     }
 }
